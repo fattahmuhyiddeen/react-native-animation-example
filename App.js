@@ -8,6 +8,7 @@ import ScrollViewHeader from './examples/ScrollViewHeader';
 import DragDrop from './examples/DragDrop';
 import DragDrop2 from './examples/DragDrop2';
 import DragDrop3 from './examples/DragDrop3';
+import Perspective from './examples/Perspective';
 
 export default () => (
   <SafeAreaView style={{ flex: 1 }}>
@@ -18,6 +19,7 @@ export default () => (
     {/* <ScrollViewHeader /> */}
     {/* <DragDrop /> */}
     {/* <DragDrop2 /> */}
-    <DragDrop3 />
+    {/* <DragDrop3 /> */}
+    <Perspective />
   </SafeAreaView>
 );
