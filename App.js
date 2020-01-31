@@ -15,7 +15,7 @@ export default () => (
     {/* <List /> */}
     {/* <List2 /> */}
     {/* <DragDrop /> */}
-    <ScrollViewHeader />
-    {/* <DragDrop2 /> */}
+    {/* <ScrollViewHeader /> */}
+    <DragDrop2 />
   </SafeAreaView>
 );
