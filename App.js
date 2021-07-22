@@ -17,9 +17,11 @@ export default () => (
     {/* <List /> */}
     {/* <List2 /> */}
     {/* <ScrollViewHeader /> */}
-    {/* <DragDrop /> */}
-    {/* <DragDrop2 /> */}
+
+    {/* Drag, after drop it bounce back to original place */}
+    {/* <DragDrop /> */} 
+    <DragDrop2 />
     {/* <DragDrop3 /> */}
-    <Perspective />
+    {/* <Perspective /> */}
   </SafeAreaView>
 );
