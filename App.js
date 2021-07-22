@@ -1,5 +1,5 @@
 import React from 'react';
-import { SafeAreaView } from 'react-native';
+import {SafeAreaView} from 'react-native';
 import ShareTimeline from './examples/ShareTimeline';
 import Loop from './examples/Loop';
 import List from './examples/List';
@@ -11,7 +11,7 @@ import DragDrop3 from './examples/DragDrop3';
 import Perspective from './examples/Perspective';
 
 export default () => (
-  <SafeAreaView style={{ flex: 1 }}>
+  <SafeAreaView style={{flex: 1}}>
     {/* <ShareTimeline /> */}
     {/* <Loop /> */}
     {/* <List /> */}
@@ -19,9 +19,12 @@ export default () => (
     {/* <ScrollViewHeader /> */}
 
     {/* Drag, after drop it bounce back to original place */}
-    {/* <DragDrop /> */} 
-    <DragDrop2 />
-    {/* <DragDrop3 /> */}
+    {/* <DragDrop /> */}
+
+    {/* Drag, after drop continue where it stop */}
+    {/* <DragDrop2 /> */}
+
+    <DragDrop3 />
     {/* <Perspective /> */}
   </SafeAreaView>
 );
