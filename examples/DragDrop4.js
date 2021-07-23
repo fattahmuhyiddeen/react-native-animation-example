@@ -9,22 +9,25 @@ import {
 
 const boxSize = 50;
 export default () => {
-  const pan = useRef(new Animated.ValueXY()).current;
+  const timeline = useRef(new Animated.ValueXY()).current;
   const {width, height} = useWindowDimensions();
 
   const panResponder = useRef(
     PanResponder.create({
       onMoveShouldSetPanResponder: () => true,
       onPanResponderGrant: () => {
-        pan.setOffset({
-          x: pan.x._value,
-          y: pan.y._value,
+        timeline.setOffset({
+          x: timeline.x._value,
+          y: timeline.y._value,
         });
       },
-      onPanResponderMove: Animated.event([null, {dx: pan.x, dy: pan.y}]),
+      onPanResponderMove: Animated.event([
+        null,
+        {dx: timeline.x, dy: timeline.y},
+      ]),
       onPanResponderRelease: (e, g) => {
-        pan.flattenOffset();
-        Animated.spring(pan, {
+        timeline.flattenOffset();
+        Animated.spring(timeline, {
           toValue: {x: 0, y: g.moveY > height / 2 ? height - boxSize - 100 : 0},
         }).start();
       },
@@ -35,7 +38,7 @@ export default () => {
     <View style={styles.container}>
       <Animated.View
         style={{
-          transform: [{translateX: pan.x}, {translateY: pan.y}],
+          transform: [{translateX: timeline.x}, {translateY: timeline.y}],
         }}
         {...panResponder.panHandlers}>
         <View style={styles.box} />
