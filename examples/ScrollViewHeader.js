@@ -1,10 +1,10 @@
-import React from 'react';
+import React, {useRef} from 'react';
 import {Animated, ScrollView, Text} from 'react-native';
 const MIN_HEADER_HEIGHT = 50;
 const MAX_HEADER_HEIGHT = 150;
-const timeline = new Animated.Value(0);
 
 export default () => {
+  const timeline = useRef(new Animated.Value(0)).current;
   return (
     <>
       <Animated.View
@@ -22,13 +22,17 @@ export default () => {
         scrollEventThrottle={1}
         showsVerticalScrollIndicator={false}
         showsHorizontalScrollIndicator={false}
-        onScroll={Animated.event([
-          {nativeEvent: {contentOffset: {y: timeline}}},
-        ])}>
+        onScroll={Animated.event(
+          [{nativeEvent: {contentOffset: {y: timeline}}}],
+          {
+            useNativeDriver: false,
+          },
+        )}>
         {Array(99)
           .fill()
           .map((_, i) => (
             <Text
+              key={i}
               style={{
                 backgroundColor: 'red',
                 margin: 5,

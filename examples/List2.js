@@ -1,12 +1,17 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useRef} from 'react';
 import {Animated} from 'react-native';
-const timeline = new Animated.Value(0);
 const ARRAY_SIZE = 20;
 
 export default () => {
+  const timeline = useRef(new Animated.Value(0)).current;
+
   useEffect(
     () =>
-      Animated.timing(timeline, {toValue: ARRAY_SIZE, duration: 1000}).start(),
+      Animated.timing(timeline, {
+        toValue: ARRAY_SIZE,
+        duration: 1000,
+        useNativeDriver: true,
+      }).start(),
     [],
   );
 
@@ -22,6 +27,7 @@ export default () => {
 
           return (
             <Animated.Text
+              key={i}
               style={{
                 opacity,
                 backgroundColor: 'red',

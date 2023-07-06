@@ -14,7 +14,7 @@ import Perspective from './examples/Perspective';
 export default () => (
   <SafeAreaView style={{flex: 1}}>
     {/* <Loop /> */}
-    <List />
+    {/* <List /> */}
     {/* <List2 /> */}
     {/* <ScrollViewHeader /> */}
 
@@ -28,7 +28,7 @@ export default () => (
     {/* <DragDrop3 /> */}
 
     {/* Drop auto bounce to nearest hotspot */}
-    {/* <DragDrop4 /> */}
+    <DragDrop4 />
 
     {/* Object sharing same timeline */}
     {/* <ShareTimeline /> */}
