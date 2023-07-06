@@ -1,9 +1,12 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useRef} from 'react';
 import {Animated} from 'react-native';
-const timeline = new Animated.Value(0);
 
 export default () => {
-  useEffect(() => Animated.timing(timeline, {toValue: 1}).start(), []);
+  const timeline = useRef(new Animated.Value(0)).current;
+
+  useEffect(() => {
+    Animated.timing(timeline, {toValue: 1, useNativeDriver: true}).start();
+  }, [timeline]);
 
   return (
     <>
@@ -16,6 +19,7 @@ export default () => {
           });
           return (
             <Animated.Text
+              key={i}
               style={{
                 transform: [{translateY}],
                 backgroundColor: 'red',

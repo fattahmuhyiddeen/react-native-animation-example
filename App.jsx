@@ -13,8 +13,8 @@ import Perspective from './examples/Perspective';
 
 export default () => (
   <SafeAreaView style={{flex: 1}}>
-    <Loop />
-    {/* <List /> */}
+    {/* <Loop /> */}
+    <List />
     {/* <List2 /> */}
     {/* <ScrollViewHeader /> */}
 
