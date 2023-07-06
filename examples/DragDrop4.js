@@ -10,7 +10,7 @@ import {
 const boxSize = 50;
 export default () => {
   const timeline = useRef(new Animated.ValueXY()).current;
-  const {width, height} = useWindowDimensions();
+  const {height} = useWindowDimensions();
 
   const panResponder = useRef(
     PanResponder.create({
@@ -21,13 +21,16 @@ export default () => {
           y: timeline.y._value,
         });
       },
-      onPanResponderMove: Animated.event([
-        null,
-        {dx: timeline.x, dy: timeline.y},
-      ]),
+      onPanResponderMove: Animated.event(
+        [null, {dx: timeline.x, dy: timeline.y}],
+        {
+          useNativeDriver: false,
+        },
+      ),
       onPanResponderRelease: (e, g) => {
         timeline.flattenOffset();
         Animated.spring(timeline, {
+          useNativeDriver: false,
           toValue: {x: 0, y: g.moveY > height / 2 ? height - boxSize - 100 : 0},
         }).start();
       },

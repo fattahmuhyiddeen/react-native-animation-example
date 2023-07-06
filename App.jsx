@@ -13,8 +13,7 @@ import Perspective from './examples/Perspective';
 
 export default () => (
   <SafeAreaView style={{flex: 1}}>
-    {/* <ShareTimeline /> */}
-    {/* <Loop /> */}
+    <Loop />
     {/* <List /> */}
     {/* <List2 /> */}
     {/* <ScrollViewHeader /> */}
@@ -25,8 +24,16 @@ export default () => (
     {/* Drag, after drop continue where it stop */}
     {/* <DragDrop2 /> */}
 
+    {/* Drag drop with boudary  */}
     {/* <DragDrop3 /> */}
-    <DragDrop4 />
+
+    {/* Drop auto bounce to nearest hotspot */}
+    {/* <DragDrop4 /> */}
+
+    {/* Object sharing same timeline */}
+    {/* <ShareTimeline /> */}
+
+    {/* Not done yet */}
     {/* <Perspective /> */}
   </SafeAreaView>
 );
