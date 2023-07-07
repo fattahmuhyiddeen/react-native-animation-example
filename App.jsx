@@ -11,6 +11,7 @@ import DragDrop3 from './examples/DragDrop3';
 import DragDrop4 from './examples/DragDrop4';
 import Perspective from './examples/Perspective';
 import TouchableScale from './examples/TouchableScale';
+import Slider from './examples/Slider';
 
 export default () => (
   <SafeAreaView style={{flex: 1}}>
@@ -31,11 +32,12 @@ export default () => (
     {/* Drop auto bounce to nearest hotspot */}
     {/* <DragDrop4 /> */}
 
-    <TouchableScale />
+    {/* <TouchableScale /> */}
     {/* Object sharing same timeline */}
     {/* <ShareTimeline /> */}
 
     {/* Not done yet */}
     {/* <Perspective /> */}
+    <Slider />
   </SafeAreaView>
 );
