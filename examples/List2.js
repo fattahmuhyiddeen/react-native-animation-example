@@ -12,7 +12,7 @@ export default () => {
         duration: 1000,
         useNativeDriver: true,
       }).start(),
-    [],
+    [timeline],
   );
 
   return (

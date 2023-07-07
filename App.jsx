@@ -12,6 +12,7 @@ import DragDrop4 from './examples/DragDrop4';
 import Perspective from './examples/Perspective';
 import TouchableScale from './examples/TouchableScale';
 import Slider from './examples/Slider';
+import Pendulum from './examples/Pendulum';
 
 export default () => (
   <SafeAreaView style={{flex: 1}}>
@@ -37,7 +38,8 @@ export default () => (
     {/* <ShareTimeline /> */}
 
     {/* Not done yet */}
-    {/* <Perspective /> */}
-    <Slider />
+    <Perspective />
+    {/* <Slider /> */}
+    {/* <Pendulum /> */}
   </SafeAreaView>
 );

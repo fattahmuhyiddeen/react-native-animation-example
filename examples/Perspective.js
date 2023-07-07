@@ -1,27 +1,44 @@
 import React from 'react';
-import {
-  View,
-  Animated,
-  TouchableWithoutFeedback,
-  PanResponder,
-} from 'react-native';
+import {View, Animated, PanResponder, Easing} from 'react-native';
 const timeline = new Animated.ValueXY();
 const panResponder = PanResponder.create({
   onStartShouldSetPanResponder: () => true,
   onPanResponderMove: (e, g) => {
-    Animated.event([
-      null,
+    Animated.event(
+      [
+        null,
+        {
+          dx: timeline.x,
+          dy: timeline.y,
+        },
+      ],
       {
-        dx: timeline.x,
-        dy: timeline.y,
+        useNativeDriver: false,
       },
-    ])(e, g);
+    )(e, g);
   },
-  onPanResponderRelease: (e, gesture) => {
-    Animated.spring(timeline, {toValue: {x: 0, y: 0}}).start();
+  onPanResponderRelease: (event, gesture) => {
+    Animated.timing(timeline, {
+      toValue: {x: 0, y: 0},
+      useNativeDriver: false,
+      duration: 500,
+      easing: Easing.bounce,
+    }).start();
   },
 });
 export default () => {
+  const {left, top} = timeline.getLayout();
+
+  const rotateX = top.interpolate({
+    inputRange: [0, 100],
+    outputRange: ['0deg', '360deg'],
+  });
+
+  const rotateY = left.interpolate({
+    inputRange: [0, 100],
+    outputRange: ['0deg', '360deg'],
+  });
+
   return (
     <View style={{alignItems: 'center', justifyContent: 'center', flex: 1}}>
       <Animated.View
@@ -30,15 +47,20 @@ export default () => {
           height: 100,
           backgroundColor: 'red',
           transform: [
-            {perspective: 200},
-            {rotateY: '30deg'},
-            {rotateX: '30deg'},
+            {rotateY},
+            {rotateX},
+            {perspective: 1000}, // without this line this Animation will not render on Android while working fine on iOS
           ],
         }}
       />
       <View
         {...panResponder.panHandlers}
-        style={{top: 0, bottom: 0, right: 0, left: 0, position: 'absolute'}}
+        style={{
+          width: '100%',
+          height: '100%',
+          position: 'absolute',
+          zIndex: 999999,
+        }}
       />
     </View>
   );
