@@ -1,5 +1,6 @@
+// https://stackoverflow.com/questions/59827667/how-to-implement-bezier-function-in-react-native-animation
 import React, {useRef, useEffect} from 'react';
-import {Animated, View, Easing} from 'react-native';
+import {Animated, View, Easing, Pressable} from 'react-native';
 
 export default () => {
   const timeline = useRef(new Animated.Value(0)).current;
@@ -11,15 +12,21 @@ export default () => {
           toValue: 1,
           useNativeDriver: true,
           duration: 500,
-          // easing: Easing.inOut(Easing.ease),
+          easing: Easing.bezier(0.42, 0, 0.58, 1),
         }),
         Animated.timing(timeline, {
           toValue: 2,
           useNativeDriver: true,
           duration: 500,
-          // easing: Easing.inOut(Easing.ease),
+          easing: Easing.bezier(0.42, 0, 0.58, 1),
         }),
       ]),
+      // Animated.timing(timeline, {
+      //   toValue: 2,
+      //   useNativeDriver: true,
+      //   duration: 1000,
+      //   easing: Easing.bezier(0.42, 0, 0.58, 1),
+      // }),
     ).start();
   }, [timeline]);
 
@@ -29,11 +36,11 @@ export default () => {
   });
 
   return (
-    <View style={{flex: 1}}>
-      <Animated.View
-        style={{
-          transform: [{rotate}],
-        }}>
+    <Pressable
+      style={{flex: 1}}
+      onPressIn={() => timeline.stopAnimation()}
+      onPressOut={() => timeline}>
+      <Animated.View style={{transform: [{rotate}]}}>
         <View style={{height: 200}} />
         <View style={{height: 200, alignItems: 'center'}}>
           <View style={{height: 150, width: 10, backgroundColor: 'red'}} />
@@ -47,6 +54,6 @@ export default () => {
           />
         </View>
       </Animated.View>
-    </View>
+    </Pressable>
   );
 };

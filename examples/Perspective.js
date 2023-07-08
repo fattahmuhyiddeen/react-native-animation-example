@@ -40,7 +40,9 @@ export default () => {
   });
 
   return (
-    <View style={{alignItems: 'center', justifyContent: 'center', flex: 1}}>
+    <View
+      {...panResponder.panHandlers}
+      style={{alignItems: 'center', justifyContent: 'center', flex: 1}}>
       <Animated.View
         style={{
           width: 100,
@@ -51,15 +53,6 @@ export default () => {
             {rotateX},
             {perspective: 1000}, // without this line this Animation will not render on Android while working fine on iOS
           ],
-        }}
-      />
-      <View
-        {...panResponder.panHandlers}
-        style={{
-          width: '100%',
-          height: '100%',
-          position: 'absolute',
-          zIndex: 999999,
         }}
       />
     </View>
