@@ -16,7 +16,7 @@ import Pendulum from './examples/Pendulum';
 
 export default () => (
   <SafeAreaView style={{flex: 1}}>
-    <Loop />
+    {/* <Loop /> */}
     {/* <List /> */}
     {/* <List2 /> */}
     {/* <ScrollViewHeader /> */}
@@ -40,6 +40,6 @@ export default () => (
     {/* Not done yet */}
     {/* <Perspective /> */}
     {/* <Slider /> */}
-    {/* <Pendulum /> */}
+    <Pendulum />
   </SafeAreaView>
 );

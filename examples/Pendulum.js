@@ -4,8 +4,7 @@ import {Animated, View, Easing, Pressable} from 'react-native';
 
 export default () => {
   const timeline = useRef(new Animated.Value(0)).current;
-
-  useEffect(() => {
+  const start = () => {
     Animated.loop(
       Animated.sequence([
         Animated.timing(timeline, {
@@ -25,10 +24,12 @@ export default () => {
       //   toValue: 2,
       //   useNativeDriver: true,
       //   duration: 1000,
-      //   easing: Easing.bezier(0.42, 0, 0.58, 1),
+      //   // easing: Easing.bezier(0.42, 0, 0.58, 1),
       // }),
     ).start();
-  }, [timeline]);
+  };
+
+  useEffect(start, [timeline]);
 
   const rotate = timeline.interpolate({
     inputRange: [0, 1, 2],
@@ -39,7 +40,7 @@ export default () => {
     <Pressable
       style={{flex: 1}}
       onPressIn={() => timeline.stopAnimation()}
-      onPressOut={() => timeline}>
+      onPressOut={start}>
       <Animated.View style={{transform: [{rotate}]}}>
         <View style={{height: 200}} />
         <View style={{height: 200, alignItems: 'center'}}>
