@@ -1,10 +1,11 @@
-import React, {useRef} from 'react';
+import React, {useRef, useState} from 'react';
 import {
   Animated,
   View,
   StyleSheet,
   PanResponder,
   useWindowDimensions,
+  Pressable,
 } from 'react-native';
 
 const boxSize = 50;
@@ -37,6 +38,8 @@ export default () => {
     }),
   ).current;
 
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <View style={styles.container}>
       <Animated.View
@@ -44,7 +47,10 @@ export default () => {
           transform: [{translateX: timeline.x}, {translateY: timeline.y}],
         }}
         {...panResponder.panHandlers}>
-        <View style={styles.box} />
+        <Pressable
+          onPress={() => setIsOpen(v => !v)}
+          style={[styles.box, {borderRadius: isOpen ? 0 : boxSize}]}
+        />
       </Animated.View>
     </View>
   );
