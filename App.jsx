@@ -12,7 +12,9 @@ import DragDrop4 from './examples/DragDrop4';
 import Perspective from './examples/Perspective';
 import TouchableScale from './examples/TouchableScale';
 import Slider from './examples/Slider';
+import SliderTab from './examples/SliderTab';
 import Pendulum from './examples/Pendulum';
+import FlatListWithGesture from './examples/FlatListWithGesture';
 
 export default () => (
   <SafeAreaView style={{flex: 1}}>
@@ -39,7 +41,12 @@ export default () => (
 
     {/* Not done yet */}
     {/* <Perspective /> */}
-    {/* <Slider /> */}
-    <Pendulum />
+
+    {/* Slider with animted tab */}
+    <SliderTab />
+    {/* <Pendulum /> */}
+
+    {/* Flatlist with item can swipe (not ready yet) */}
+    {/* <FlatListWithGesture /> */}
   </SafeAreaView>
 );
