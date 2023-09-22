@@ -16,6 +16,10 @@ const data = [
     title: 'Slide B',
     children: <View style={{height: 200, backgroundColor: 'green'}}></View>,
   },
+  {
+    title: 'Slide C',
+    children: <View style={{height: 200, backgroundColor: 'blue'}}></View>,
+  },
 ];
 
 export default () => {
