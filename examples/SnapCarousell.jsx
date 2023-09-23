@@ -64,17 +64,16 @@ export default ({loop = true, data = sampleData}) => {
       Math.max(Math.floor(e.nativeEvent.contentOffset.x / width + 0.5), 0),
       renderedData.length,
     );
+    let jumpIndex = stoppedIndex;
     if (loop) {
-      let jumpIndex = stoppedIndex;
       if (!stoppedIndex) {
         jumpIndex = renderedData.length - 2;
-        scrollToIndex(jumpIndex);
       } else if (stoppedIndex === renderedData.length - 1) {
         jumpIndex = 1;
-        scrollToIndex(jumpIndex);
       }
-      setActiveIndex(jumpIndex);
-    } else setActiveIndex(stoppedIndex);
+    }
+    if (jumpIndex !== stoppedIndex) scrollToIndex(jumpIndex);
+    setActiveIndex(jumpIndex);
   };
 
   const scrollToIndex = (index, animated = false) => {
@@ -108,9 +107,7 @@ export default ({loop = true, data = sampleData}) => {
       </Animated.View>
       <View style={styles.bulletContainer}>
         {data.map((_, i, a) => {
-          let isActive = (loop ? i + 1 : i) === activeIndex;
-          if (loop && !activeIndex) isActive = i === a.length - 1;
-          // if (loop && activeIndex === a.length - 1) isActive = i === 0;
+          const isActive = (loop ? i + 1 : i) === activeIndex;
           return (
             <Pressable
               onPress={() => scrollToIndex(loop ? i + 1 : i)}
