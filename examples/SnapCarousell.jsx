@@ -66,9 +66,8 @@ export default ({loop = true, data = sampleData}) => {
     );
     let jumpIndex = stoppedIndex;
     if (loop) {
-      if (!stoppedIndex) {
-        jumpIndex = renderedData.length - 2;
-      } else if (stoppedIndex === renderedData.length - 1) {
+      jumpIndex ||= renderedData.length - 2;
+      if (stoppedIndex === renderedData.length - 1) {
         jumpIndex = 1;
       }
     }
