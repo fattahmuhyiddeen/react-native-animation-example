@@ -57,7 +57,7 @@ export default ({loop = true, data = sampleData}) => {
   const [width, setWidth] = useState(0);
   const animHeight = useRef(new Animated.Value(100)).current;
   const [activeIndex, setActiveIndex] = useState(loop ? 1 : 0);
-  const renderedData = loop ? [data[2], ...data, data[0]] : data;
+  const renderedData = loop ? [...data.slice(-1), ...data, data[0]] : data;
 
   const onScrollEnd = e => {
     const stoppedIndex = Math.min(
