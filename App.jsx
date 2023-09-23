@@ -13,6 +13,7 @@ import Perspective from './examples/Perspective';
 import TouchableScale from './examples/TouchableScale';
 import Slider from './examples/Slider';
 import SliderTab from './examples/SliderTab';
+import SnapCarousell from './examples/SnapCarousell';
 import Pendulum from './examples/Pendulum';
 import FlatListWithGesture from './examples/FlatListWithGesture';
 
@@ -43,10 +44,11 @@ export default () => (
     {/* <Perspective /> */}
 
     {/* Slider with animted tab */}
-    <SliderTab />
+    {/* <SliderTab /> */}
     {/* <Pendulum /> */}
 
     {/* Flatlist with item can swipe (not ready yet) */}
     {/* <FlatListWithGesture /> */}
+    <SnapCarousell />
   </SafeAreaView>
 );
