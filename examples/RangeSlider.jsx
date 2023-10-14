@@ -1,7 +1,11 @@
 import React, {useEffect, useRef, useState} from 'react';
 import {Animated, PanResponder, View} from 'react-native';
 
-export default ({knobWidth = 50}) => {
+export default ({
+  knobSize = 50,
+  activeBackgroundColor = 'yellow',
+  nonActiveBackgroundColor = 'blue',
+}) => {
   const timeline = useRef(new Animated.Value(0)).current;
   const [width, setWidth] = useState(0);
   const oldWidth = useRef(0);
@@ -44,13 +48,23 @@ export default ({knobWidth = 50}) => {
   return (
     <View style={{margin: 100}}>
       <View
-        style={{backgroundColor: 'blue'}}
-        onLayout={e => setWidth(e.nativeEvent.layout.width - knobWidth)}>
+        style={{backgroundColor: nonActiveBackgroundColor}}
+        onLayout={e => setWidth(e.nativeEvent.layout.width - knobSize)}>
+        <Animated.View
+          style={{
+            width: left,
+            backgroundColor: activeBackgroundColor,
+            top: 0,
+            bottom: 0,
+            left: 0,
+            position: 'absolute',
+          }}
+        />
         <Animated.View
           {...panResponder.panHandlers}
           style={{
-            height: knobWidth,
-            width: knobWidth,
+            height: knobSize,
+            width: knobSize,
             backgroundColor: 'red',
             left,
           }}
