@@ -16,6 +16,7 @@ import SliderTab from './examples/SliderTab';
 import SnapCarousell from './examples/SnapCarousell';
 import Pendulum from './examples/Pendulum';
 import FlatListWithGesture from './examples/FlatListWithGesture';
+import RangeSlider from './examples/RangeSlider';
 
 export default () => (
   <SafeAreaView style={{flex: 1}}>
@@ -40,7 +41,6 @@ export default () => (
     {/* Object sharing same timeline */}
     {/* <ShareTimeline /> */}
 
-    {/* Not done yet */}
     {/* <Perspective /> */}
 
     {/* Slider with animted tab */}
@@ -49,6 +49,7 @@ export default () => (
 
     {/* Flatlist with item can swipe (not ready yet) */}
     {/* <FlatListWithGesture /> */}
-    <SnapCarousell />
+    {/* <SnapCarousell /> */}
+    <RangeSlider />
   </SafeAreaView>
 );
