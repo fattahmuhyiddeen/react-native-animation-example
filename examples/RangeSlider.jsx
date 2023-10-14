@@ -22,7 +22,6 @@ export default ({knobWidth = 50}) => {
     outputRange: [min, width],
     extrapolate: 'clamp',
   });
-  console.log('xxxx left', left)
 
   useEffect(() => {
     if (oldWidth.current) {
