@@ -16,7 +16,8 @@ import SliderTab from './examples/SliderTab';
 import SnapCarousell from './examples/SnapCarousell';
 import Pendulum from './examples/Pendulum';
 import FlatListWithGesture from './examples/FlatListWithGesture';
-import RangeSlider from './examples/RangeSlider';
+// import RangeSlider from './examples/RangeSlider';
+import BouncingBall from './examples/BouncingBall';
 
 export default () => (
   <SafeAreaView style={{flex: 1}}>
@@ -50,6 +51,7 @@ export default () => (
     {/* Flatlist with item can swipe (not ready yet) */}
     {/* <FlatListWithGesture /> */}
     {/* <SnapCarousell /> */}
-    <RangeSlider />
+    {/* <RangeSlider /> */}
+    <BouncingBall />
   </SafeAreaView>
 );
