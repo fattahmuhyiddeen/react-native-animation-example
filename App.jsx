@@ -1,5 +1,5 @@
 import React from 'react';
-import {SafeAreaView} from 'react-native';
+import {View} from 'react-native';
 import ShareTimeline from './examples/ShareTimeline';
 import Loop from './examples/Loop';
 import List from './examples/List';
@@ -20,7 +20,7 @@ import FlatListWithGesture from './examples/FlatListWithGesture';
 import BouncingBall from './examples/BouncingBall';
 
 export default () => (
-  <SafeAreaView style={{flex: 1}}>
+  <View style={{flex: 1, paddingVertical:40}}>
     {/* <Loop /> */}
     {/* <List /> */}
     {/* <List2 /> */}
@@ -53,5 +53,5 @@ export default () => (
     {/* <SnapCarousell /> */}
     {/* <RangeSlider /> */}
     <BouncingBall />
-  </SafeAreaView>
+  </View>
 );
